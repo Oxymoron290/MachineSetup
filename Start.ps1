@@ -79,7 +79,7 @@ try{
 
     ##--- Rename the Computer ---
     ## Requires restart, or add the -Restart flag
-    $NewMachineName = "tsturm-pc"
+    $NewMachineName = "tsturm-devbox"
     Write-BoxstarterMessage "Renaming PC to " $NewMachineName
     if ($env:computername -ne $NewMachineName) {
         Rename-Computer -NewName $NewMachineName
