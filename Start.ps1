@@ -52,7 +52,7 @@ $DisableArduino,
 [switch]
 $DisableOperations)
 
-Set-ExecutionPolicy RemoteSigned
+#Set-ExecutionPolicy RemoteSigned
 
 if($PSVersionTable.PSVersion.Major -lt 3){
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://boxstarter.org/bootstrapper.ps1')); get-boxstarter -Force
