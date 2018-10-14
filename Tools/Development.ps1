@@ -1,6 +1,7 @@
 Enable-RemoteDesktop
-cinst Microsoft-Hyper-V-All -source windowsFeatures
-Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/Oxymoron290/MachineSetup/master/IIS-Features.ps1 -DisableReboots
+#cinst Microsoft-Hyper-V-All -source windowsFeatures
+Install-WindowsFeature -name hyper-v -IncludeManagementTools
+Install-BoxstarterPackage -PackageName ./IIS-Features.ps1 -DisableReboots
 
 # Slim IDEs
 cinst -y vscode

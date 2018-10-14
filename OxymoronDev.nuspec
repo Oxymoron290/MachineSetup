@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>OxymoronDev</id>
+    <version>1.0.0</version>
+    <authors>Oxymoron290</authors>
+    <owners>Oxymoron290</owners>
+    <description>Development environment for Oxymoron</description>
+    <tags>Boxstarter</tags>
+  </metadata>
+</package>

@@ -1,3 +1,4 @@
+cinst -y jdk8
 cinst -y eclipse
 
 # File associations
