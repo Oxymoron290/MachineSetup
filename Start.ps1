@@ -1,4 +1,4 @@
-
+#Requires -RunAsAdministrator
 # Description: Boxstarter Script
 # Author: Jess Frazelle <jess@linux.com>
 # Last Updated: 2017-09-11
