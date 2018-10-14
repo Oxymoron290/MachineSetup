@@ -61,3 +61,7 @@ try{
     if ($env:computername -ne $NewMachineName) {
         Rename-Computer -NewName $NewMachineName
     }
+} catch {
+    Write-ChocolateyFailure 'Boxstarter Error: ' $($_.Exception.Message)
+    throw
+}
