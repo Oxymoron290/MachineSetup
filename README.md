@@ -1,7 +1,7 @@
 # MachineSetup
 These are scripts I use to setup new machines
 
-#Instructions
+# Instructions
 1. Open a PowerShell window with elevated permissions
 2. Run `Set-ExecutionPolicy Unrestricted` in this shell.
 3. Type 'A' to accept the changes
