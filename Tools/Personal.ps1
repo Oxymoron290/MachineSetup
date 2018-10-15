@@ -1,7 +1,7 @@
-cinst steam
-cinst epicgameslauncher
-cinst origin
-cinst uplay
-cinst playnite
-cinst discord
-cinst steam-cleaner
+cinst steam -y --cacheLocation "C:\temp"
+cinst epicgameslauncher -y --cacheLocation "C:\temp"
+cinst origin -y --cacheLocation "C:\temp"
+cinst uplay -y --cacheLocation "C:\temp"
+cinst playnite -y --cacheLocation "C:\temp"
+cinst discord -y --cacheLocation "C:\temp"
+cinst steam-cleaner -y --cacheLocation "C:\temp"

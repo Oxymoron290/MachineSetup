@@ -1,20 +1,20 @@
-cinst putty
-cinst sysinternals
-cinst nirlauncher
-cinst filezilla
-cinst bluescreenview
-cinst windirstat
-cinst rufus
-cinst osquery
-cinst lockhunter
-cinst rdcman
-cinst pstools
-cinst combofix
-cinst imgburn
-cinst nssm
-cinst windowsrepair
-cinst gpu-z
-cinst advanced-ip-scanner
+cinst putty -y --cacheLocation "C:\temp"
+cinst sysinternals -y --cacheLocation "C:\temp"
+cinst nirlauncher -y --cacheLocation "C:\temp"
+cinst filezilla -y --cacheLocation "C:\temp"
+cinst bluescreenview -y --cacheLocation "C:\temp"
+cinst windirstat -y --cacheLocation "C:\temp"
+cinst rufus -y --cacheLocation "C:\temp"
+cinst osquery -y --cacheLocation "C:\temp"
+cinst lockhunter -y --cacheLocation "C:\temp"
+cinst rdcman -y --cacheLocation "C:\temp"
+cinst pstools -y --cacheLocation "C:\temp"
+cinst combofix -y --cacheLocation "C:\temp"
+cinst imgburn -y --cacheLocation "C:\temp"
+cinst nssm -y --cacheLocation "C:\temp"
+cinst windowsrepair -y --cacheLocation "C:\temp"
+cinst gpu-z -y --cacheLocation "C:\temp"
+cinst advanced-ip-scanner -y --cacheLocation "C:\temp"
 
 # File associations
 ##Install-ChocolateyFileAssociation ".txt" "$env:programfiles\Sublime Text 3\sublime_text.exe"

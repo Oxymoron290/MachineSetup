@@ -1,11 +1,12 @@
-cinst -y dotnetcore-sdk
-cinst -y visualstudio2017enterprise
-cinst -y resharper
-cinst -y nugetpackageexplorer
-cinst -y sql-server-management-studio
-cinst -y ilspy
-cinst -y dotpeek
-cinst -y linqpad
+cinst dotnetcore-sdk -y --cacheLocation "C:\temp"
+cinst visualstudio2017enterprise -y --cacheLocation "C:\temp"
+cinst resharper -y --cacheLocation "C:\temp"
+cinst nugetpackageexplorer -y --cacheLocation "C:\temp"
+cinst azure-data-studio -y --cacheLocation "C:\temp"
+cinst sql-server-management-studio -y --cacheLocation "C:\temp"
+cinst ilspy -y --cacheLocation "C:\temp"
+cinst dotpeek -y --cacheLocation "C:\temp"
+cinst linqpad -y --cacheLocation "C:\temp"
 
 
 Install-ChocolateyVsixPackage xunit http://visualstudiogallery.msdn.microsoft.com/463c5987-f82b-46c8-a97e-b1cde42b9099/file/66837/1/xunit.runner.visualstudio.vsix

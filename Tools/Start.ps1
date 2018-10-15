@@ -7,6 +7,8 @@ try{
     #---- TEMPORARY ---
     Disable-UAC
     
+    New-Item -Path "C:\temp" -ItemType directory -Force
+
     Install-BoxstarterPackage -PackageName ./WindowsSettings.ps1 -DisableReboots
     Install-BoxstarterPackage -PackageName ./Bloatware.ps1 -DisableReboots
     Install-BoxstarterPackage -PackageName ./Common.ps1 -DisableReboots

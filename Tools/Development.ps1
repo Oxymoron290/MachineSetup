@@ -4,21 +4,21 @@ Install-WindowsFeature -name hyper-v -IncludeManagementTools
 Install-BoxstarterPackage -PackageName ./IIS-Features.ps1 -DisableReboots
 
 # Slim IDEs
-cinst -y vscode
-cinst -y notepadplusplus
-cinst -y sublimetext2
+cinst vscode -y --cacheLocation "C:\temp"
+cinst notepadplusplus -y --cacheLocation "C:\temp"
+cinst sublimetext2 -y --cacheLocation "C:\temp"
 
 # Debug Tools
-cinst -y fiddler
-cinst -y postman
-cinst -y wireshark
+cinst fiddler -y --cacheLocation "C:\temp"
+cinst postman -y --cacheLocation "C:\temp"
+cinst wireshark -y --cacheLocation "C:\temp"
 
 # Source control
-cinst -y git
-cinst -y gitversion
-cinst -y gource
-cinst -y poshgit
-cinst -y git-credential-winstore
+cinst git -y -params /GitAndUnixToolsOnPath --cacheLocation "C:\temp"
+cinst gitversion -y --cacheLocation "C:\temp"
+cinst gource -y --cacheLocation "C:\temp"
+cinst poshgit -y --cacheLocation "C:\temp"
+cinst git-credential-winstore -y --cacheLocation "C:\temp"
 
 # Other Tools
-cinst -y console-devel
+cinst console-devel -y --cacheLocation "C:\temp"
