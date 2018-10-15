@@ -54,11 +54,10 @@ $DisableOperations)
 
 if($PSVersionTable.PSVersion.Major -lt 3){
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://boxstarter.org/bootstrapper.ps1')); get-boxstarter -Force
-    exit
 }
 else
 {
-    . { Invoke-WebRequest -useb https://boxstarter.org/bootstrapper.ps1 } | iex; get-boxstarter -Force
+    . { Invoke-WebRequest -useb https://boxstarter.org/bootstrapper.ps1 } | Invoke-Expression ; get-boxstarter -Force
 }
 
 try{
