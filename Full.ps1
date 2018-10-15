@@ -234,7 +234,7 @@ try{
 
     cinst inconsolata -y --cacheLocation "C:\temp"
     cinst unchecky -y --cacheLocation "C:\temp"
-    cinst spotify -y --cacheLocation "C:\temp"
+    cinst spotify -y --ignore-checksum --cacheLocation "C:\temp"
     cinst slack -y --cacheLocation "C:\temp"
 
     # Install Browsers
@@ -244,9 +244,10 @@ try{
     cinst flashplayerplugin -y --cacheLocation "C:\temp"
     cinst opera -y --cacheLocation "C:\temp"
     
-    Write-BoxstarterMessage "Installing work environment"Enable-RemoteDesktop
+    Write-BoxstarterMessage "Installing work environment"
+    #Enable-RemoteDesktop
     #cinst Microsoft-Hyper-V-All -source windowsFeatures
-    Install-WindowsFeature -name hyper-v -IncludeManagementTools
+    #Install-WindowsFeature -name hyper-v -IncludeManagementTools
     Install-BoxstarterPackage -PackageName ./IIS-Features.ps1 -DisableReboots
     
     # Slim IDEs
