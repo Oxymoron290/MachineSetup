@@ -160,7 +160,7 @@ try{
     Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage
 
     # Maps
-    Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage
+    #Get-AppxPackage Microsoft.WindowsMaps | Remove-AppxPackage
 
     # March of Empires
     Get-AppxPackage *MarchofEmpires* | Remove-AppxPackage
@@ -201,7 +201,7 @@ try{
     Get-AppxPackage Microsoft.WindowsPhone | Remove-AppxPackage
 
     # Photos
-    Get-AppxPackage Microsoft.Windows.Photos | Remove-AppxPackage
+    #Get-AppxPackage Microsoft.Windows.Photos | Remove-AppxPackage
 
     # Plex
     Get-AppxPackage *Plex* | Remove-AppxPackage
