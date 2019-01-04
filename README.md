@@ -1,5 +1,5 @@
 # MachineSetup
-These are scripts I use to setup new machines
+These are scripts I use to setup new machines. They are intended to be idempotent.
 
 # Instructions
 1. Open a PowerShell window with elevated permissions
