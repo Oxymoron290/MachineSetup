@@ -370,6 +370,7 @@ try{
 
     cinst audacity -y --cacheLocation "C:\temp"
     cinst audacity-lame -y --cacheLocation "C:\temp"
+    cinst audacity-ffmpeg -y --cacheLocation "C:\temp"
     cinst obs-studio -y --cacheLocation "C:\temp"
     cinst shotcut -y --cacheLocation "C:\temp"
     cinst handbrake -y --cacheLocation "C:\temp"
