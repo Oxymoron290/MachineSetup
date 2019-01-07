@@ -325,6 +325,10 @@ try{
     Write-BoxstarterMessage "Installing MEAN stack tools"
     Install-BoxstarterPackage https://raw.githubusercontent.com/nodejs/node/master/tools/bootstrap/windows_boxstarter -DisableReboots
 
+    cinst golang -y --cacheLocation "C:\temp"
+    cinst rust -y --cacheLocation "C:\temp"
+    cinst erlang -y --cacheLocation "C:\temp"
+    cinst elixir -y --cacheLocation "C:\temp"
     cinst python2 -y --cacheLocation "C:\temp"
 
     cinst visualstudio2017buildtools -y --cacheLocation "C:\temp"
