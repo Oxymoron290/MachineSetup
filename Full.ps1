@@ -321,6 +321,7 @@ try{
     Write-BoxstarterMessage "Installing Java stack tools"
     cinst jdk8 -y --cacheLocation "C:\temp"
     cinst eclipse -y --cacheLocation "C:\temp"
+    cinst gradle -y --cacheLocation "C:\temp"
 
     Write-BoxstarterMessage "Installing MEAN stack tools"
     Install-BoxstarterPackage https://raw.githubusercontent.com/nodejs/node/master/tools/bootstrap/windows_boxstarter -DisableReboots
