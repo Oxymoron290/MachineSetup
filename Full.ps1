@@ -324,7 +324,7 @@ try{
     cinst gradle -y --cacheLocation "C:\temp"
 
     Write-BoxstarterMessage "Installing MEAN stack tools"
-    Install-BoxstarterPackage https://raw.githubusercontent.com/nodejs/node/master/tools/bootstrap/windows_boxstarter -DisableReboots
+    #Install-BoxstarterPackage https://raw.githubusercontent.com/nodejs/node/master/tools/bootstrap/windows_boxstarter -DisableReboots
 
     cinst golang -y --cacheLocation "C:\temp"
     cinst rust -y --cacheLocation "C:\temp"
@@ -338,6 +338,7 @@ try{
     cinst nasm -y
     cinst nodejs -y --cacheLocation "C:\temp"
     cinst mongodb -y --cacheLocation "C:\temp"
+    cinst yarn -y --cacheLocation "C:\temp"
     
     Write-BoxstarterMessage "Installing LAMP stack tools"
     cinst Microsoft-Windows-Subsystem-Linux -source windowsfeatures
