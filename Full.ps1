@@ -11,8 +11,9 @@ try{
     Disable-InternetExplorerESC
     Update-ExecutionPolicy Unrestricted
 
-    Set-TaskbarOptions -Size Small -Dock Bottom -Combine Full -Lock
-    Set-TaskbarOptions -Size Small -Dock Bottom -Combine Full -AlwaysShowIconsOn
+    Set-TaskbarOptions -Dock Bottom -Combine Full -Lock -AlwaysShowIconsOn
+    #Set-TaskbarOptions -Size Small -Dock Bottom -Combine Full -Lock
+    #Set-TaskbarOptions -Size Small -Dock Bottom -Combine Full -AlwaysShowIconsOn
 
     # Setting Time Zone
     Write-BoxstarterMessage "Setting time zone to Central Standard Time"
@@ -75,7 +76,7 @@ try{
     Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name NavPaneExpandToCurrentFolder -Value 1		
     Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name NavPaneShowAllFolders -Value 1		
     Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name MMTaskbarMode -Value 2
-
+    
     # These make "Quick Access" behave much closer to the old "Favorites"
     # Disable Quick Access: Recent Files
     Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowRecent -Type DWord -Value 0
@@ -84,6 +85,13 @@ try{
     # To Restore:
     # Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowRecent -Type DWord -Value 1
     # Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowFrequent -Type DWord -Value 1
+
+    # Dark theme for file exlorer
+    If (-Not (Test-Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize)) {
+        New-Item -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes -Name Personalize | Out-Null
+    }
+    Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Type DWord -Value 0
+    Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Type DWord -Value 0
 
     # Disable the Lock Screen (the one before password prompt - to prevent dropping the first character)
     If (-Not (Test-Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization)) {
@@ -232,6 +240,10 @@ try{
     Get-AppxPackage Microsoft.ZuneMusic | Remove-AppxPackage
     Get-AppxPackage Microsoft.ZuneVideo | Remove-AppxPackage
 
+    # =============================================
+    # ---------------------------------------------
+    # =============================================
+
     cinst inconsolata -y --cacheLocation "C:\temp"
     cinst unchecky -y --cacheLocation "C:\temp"
     cinst spotify -y --ignore-checksum --cacheLocation "C:\temp"
@@ -245,9 +257,10 @@ try{
     cinst opera -y --cacheLocation "C:\temp"
     
     Write-BoxstarterMessage "Installing work environment"
-    #Enable-RemoteDesktop
-    #cinst Microsoft-Hyper-V-All -source windowsFeatures
-    #Install-WindowsFeature -name hyper-v -IncludeManagementTools
+    Enable-RemoteDesktop
+    cinst Microsoft-Hyper-V-All -source windowsFeatures
+    Install-WindowsFeature -name hyper-v -IncludeManagementTools
+    Install-WindowsFeature -name containers
     
     # enable IIS features
     cinst IIS-WebServerRole -source windowsfeatures
@@ -294,14 +307,34 @@ try{
     cinst IIS-FTPExtensibility -source windowsfeatures
     cinst IIS-DigestAuthentication -source windowsfeatures
 
-
     #Register .NET 4.0 with IIS
     ."$env:windir\microsoft.net\framework\v4.0.30319\aspnet_regiis.exe" -i
     
+    # Runtimes
+    cinst visualstudio2017buildtools -y --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US" --cacheLocation "C:\temp"
+    #cinst visualstudio2017-workload-vctools -y --cacheLocation "C:\temp"
+
+    Write-BoxstarterMessage "Installing Runtimes"
+    cinst dotnetcore-sdk -y --cacheLocation "C:\temp"
+    cinst jdk8 -y --cacheLocation "C:\temp"
+    cinst golang -y --cacheLocation "C:\temp"
+    cinst rust -y --cacheLocation "C:\temp"
+    cinst erlang -y --cacheLocation "C:\temp"
+    cinst elixir -y --cacheLocation "C:\temp"
+    cinst python2 -y --cacheLocation "C:\temp"
+
+    cinst nodejs -y --cacheLocation "C:\temp"
+    cinst yarn -y --cacheLocation "C:\temp"
+
     # Slim IDEs
+    Write-BoxstarterMessage "Installing slim IDEs"
     cinst vscode -y --cacheLocation "C:\temp"
     cinst notepadplusplus -y --cacheLocation "C:\temp"
     cinst sublimetext2 -y --cacheLocation "C:\temp"
+    cinst nimbletext -y --cacheLocation "C:\temp"
+    cinst nimbleset -y --cacheLocation "C:\temp"
+    cinst azure-data-studio -y --cacheLocation "C:\temp"
+    cinst linqpad -y --cacheLocation "C:\temp"
     
     # Debug Tools
     cinst fiddler -y --cacheLocation "C:\temp"
@@ -309,6 +342,7 @@ try{
     cinst wireshark -y --cacheLocation "C:\temp"
     
     # Source control
+    Write-BoxstarterMessage "Installing Source control tools"
     cinst git -y -params /GitAndUnixToolsOnPath --cacheLocation "C:\temp"
     cinst gitversion -y --cacheLocation "C:\temp"
     cinst gource -y --cacheLocation "C:\temp"
@@ -319,40 +353,24 @@ try{
     cinst console-devel -y --cacheLocation "C:\temp"
     
     Write-BoxstarterMessage "Installing Java stack tools"
-    cinst jdk8 -y --cacheLocation "C:\temp"
     cinst eclipse -y --cacheLocation "C:\temp"
     cinst gradle -y --cacheLocation "C:\temp"
 
     Write-BoxstarterMessage "Installing MEAN stack tools"
     #Install-BoxstarterPackage https://raw.githubusercontent.com/nodejs/node/master/tools/bootstrap/windows_boxstarter -DisableReboots
-
-    cinst golang -y --cacheLocation "C:\temp"
-    cinst rust -y --cacheLocation "C:\temp"
-    cinst erlang -y --cacheLocation "C:\temp"
-    cinst elixir -y --cacheLocation "C:\temp"
-    cinst python2 -y --cacheLocation "C:\temp"
-
-    cinst visualstudio2017buildtools -y --cacheLocation "C:\temp"
-    cinst visualstudio2017-workload-vctools -y --cacheLocation "C:\temp"
-
     cinst nasm -y
-    cinst nodejs -y --cacheLocation "C:\temp"
     cinst mongodb -y --cacheLocation "C:\temp"
-    cinst yarn -y --cacheLocation "C:\temp"
     
-    Write-BoxstarterMessage "Installing LAMP stack tools"
-    cinst Microsoft-Windows-Subsystem-Linux -source windowsfeatures
+    #Write-BoxstarterMessage "Installing LAMP stack tools"
+    #cinst Microsoft-Windows-Subsystem-Linux -source windowsfeatures
     
     Write-BoxstarterMessage "Installing WINS stack tools"
-    cinst dotnetcore-sdk -y --cacheLocation "C:\temp"
     #cinst visualstudio2017enterprise -y --cacheLocation "C:\temp"
     cinst resharper -y --cacheLocation "C:\temp"
     cinst nugetpackageexplorer -y --cacheLocation "C:\temp"
-    cinst azure-data-studio -y --cacheLocation "C:\temp"
     cinst sql-server-management-studio -y --cacheLocation "C:\temp"
     cinst ilspy -y --cacheLocation "C:\temp"
     cinst dotpeek -y --cacheLocation "C:\temp"
-    cinst linqpad -y --cacheLocation "C:\temp"
 
     cinst docker-desktop -y --cacheLocation "C:\temp"
 
