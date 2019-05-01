@@ -323,12 +323,27 @@ try{
     cinst elixir -y --cacheLocation "C:\temp"
     cinst python2 -y --cacheLocation "C:\temp"
 
-    cinst nodejs -y --cacheLocation "C:\temp"
+    #cinst nodejs -y --cacheLocation "C:\temp"
+    cinst nvm -y --cacheLocation "C:\temp"
+    refresh-env
+    nvm install --lts
+    nvm use --lts
+    npm install -g windows-build-tools --production
+    npm install -g eslint
     cinst yarn -y --cacheLocation "C:\temp"
 
     # Slim IDEs
     Write-BoxstarterMessage "Installing slim IDEs"
     cinst vscode -y --cacheLocation "C:\temp"
+    refresh-env
+    code --install-extension "dbaeumer.vscode-eslint"
+    code --install-extension "mjmcloug.vscode-elixir"
+    code --install-extension "jakebecker.elixir-ls"
+    code --install-extension "eamodio.gitlens"
+    code --install-extension "rbbit.typescript-hero"
+    code --install-extension "dskwrk.vscode-generate-getter-setter"
+    code --install-extension "vsmobile.vscode-react-native"
+
     cinst notepadplusplus -y --cacheLocation "C:\temp"
     cinst sublimetext2 -y --cacheLocation "C:\temp"
     cinst nimbletext -y --cacheLocation "C:\temp"
@@ -336,14 +351,9 @@ try{
     cinst azure-data-studio -y --cacheLocation "C:\temp"
     cinst linqpad -y --cacheLocation "C:\temp"
     
-    # Debug Tools
-    cinst fiddler -y --cacheLocation "C:\temp"
-    cinst postman -y --cacheLocation "C:\temp"
-    cinst wireshark -y --cacheLocation "C:\temp"
-    
     # Source control
     Write-BoxstarterMessage "Installing Source control tools"
-    cinst git -y -params /GitAndUnixToolsOnPath --cacheLocation "C:\temp"
+    #cinst git -y -params /GitAndUnixToolsOnPath --cacheLocation "C:\temp"
     cinst gitversion -y --cacheLocation "C:\temp"
     cinst gource -y --cacheLocation "C:\temp"
     cinst poshgit -y --cacheLocation "C:\temp"
@@ -365,19 +375,21 @@ try{
     #cinst Microsoft-Windows-Subsystem-Linux -source windowsfeatures
     
     Write-BoxstarterMessage "Installing WINS stack tools"
+    cinst visualstudio2017community -y --cacheLocation "C:\temp"
     #cinst visualstudio2017enterprise -y --cacheLocation "C:\temp"
-    cinst resharper -y --cacheLocation "C:\temp"
+    #cinst resharper -y --cacheLocation "C:\temp"
     cinst nugetpackageexplorer -y --cacheLocation "C:\temp"
     cinst sql-server-management-studio -y --cacheLocation "C:\temp"
     cinst ilspy -y --cacheLocation "C:\temp"
     cinst dotpeek -y --cacheLocation "C:\temp"
 
-    cinst docker-desktop -y --cacheLocation "C:\temp"
+    #cinst docker-desktop -y --cacheLocation "C:\temp"
 
     #Install-ChocolateyVsixPackage xunit http://visualstudiogallery.msdn.microsoft.com/463c5987-f82b-46c8-a97e-b1cde42b9099/file/66837/1/xunit.runner.visualstudio.vsix
     #Install-ChocolateyVsixPackage autowrocktestable http://visualstudiogallery.msdn.microsoft.com/ea3a37c9-1c76-4628-803e-b10a109e7943/file/73131/1/AutoWrockTestable.vsix
 
     Write-BoxstarterMessage "Installing mobile tools"
+    cinst android-sdk -y --cacheLocation "C:\temp"
     cinst androidstudio -y --cacheLocation "C:\temp"
 
     Write-BoxstarterMessage "Installing architect tools"
@@ -407,7 +419,14 @@ try{
     cinst arduino -y --cacheLocation "C:\temp"
     cinst fritzing -y --cacheLocation "C:\temp"
     
+    # Debug Tools
+    Write-BoxstarterMessage "Installing Debug tools"
+    cinst fiddler -y --cacheLocation "C:\temp"
+    cinst postman -y --cacheLocation "C:\temp"
+    cinst wireshark -y --cacheLocation "C:\temp"
+    
     Write-BoxstarterMessage "Installing Operations tools"
+    cinst anydesk -y --cacheLocation "C:\temp"
     cinst putty -y --cacheLocation "C:\temp"
     cinst sysinternals -y --cacheLocation "C:\temp"
     cinst nirlauncher -y --cacheLocation "C:\temp"
