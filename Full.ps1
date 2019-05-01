@@ -245,7 +245,6 @@ try{
     # ---------------------------------------------
     # =============================================
 
-    echo "alright"
     Write-BoxstarterMessage "installing chocolatey"
     cinst inconsolata -y --cacheLocation "C:\temp"
     
@@ -262,7 +261,7 @@ try{
     Write-BoxstarterMessage "Installing Browsers"
     cinst googlechrome -y --cacheLocation "C:\temp"
     cinst adblockpluschrome -y --cacheLocation "C:\temp"
-    cinst firefox -y --cacheLocation "C:\temp"
+    #cinst firefox -y --cacheLocation "C:\temp"
     cinst flashplayerplugin -y --cacheLocation "C:\temp"
     cinst opera -y --cacheLocation "C:\temp"
     
