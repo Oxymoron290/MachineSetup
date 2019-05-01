@@ -124,6 +124,7 @@ try{
     }
     Set-ItemProperty -Path "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name PeopleBand -Type DWord -Value 0
     
+    Write-BoxstarterMessage "Removing Bloatware"
     #---- Remove bloatware
     # Alarms
     Get-AppxPackage Microsoft.WindowsAlarms | Remove-AppxPackage
@@ -244,12 +245,20 @@ try{
     # ---------------------------------------------
     # =============================================
 
+    Write-BoxstarterMessage "installing chocolatey"
     cinst inconsolata -y --cacheLocation "C:\temp"
+    
+    Write-BoxstarterMessage "Installing unchecky"
     cinst unchecky -y --cacheLocation "C:\temp"
+    
+    Write-BoxstarterMessage "Installing Spotify"
     cinst spotify -y --ignore-checksum --cacheLocation "C:\temp"
+    
+    Write-BoxstarterMessage "Installing Slack"
     cinst slack -y --cacheLocation "C:\temp"
 
     # Install Browsers
+    Write-BoxstarterMessage "Installing Browsers"
     cinst googlechrome -y --cacheLocation "C:\temp"
     cinst adblockpluschrome -y --cacheLocation "C:\temp"
     cinst firefox -y --cacheLocation "C:\temp"
