@@ -14,7 +14,7 @@ try{
     Set-TaskbarOptions -Dock Bottom -Combine Full -Lock -AlwaysShowIconsOn
     #Set-TaskbarOptions -Size Small -Dock Bottom -Combine Full -Lock
     #Set-TaskbarOptions -Size Small -Dock Bottom -Combine Full -AlwaysShowIconsOn
-
+    try {
     # Setting Time Zone
     Write-BoxstarterMessage "Setting time zone to Central Standard Time"
     & C:\Windows\system32\tzutil /s "Central Standard Time"
@@ -123,7 +123,11 @@ try{
         New-Item -Path HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People | Out-Null
     }
     Set-ItemProperty -Path "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name PeopleBand -Type DWord -Value 0
+    } catch{
+        Write-BoxstarterMessage "Registry Edits failed"
+    }
     
+    try {
     Write-BoxstarterMessage "Removing Bloatware"
     #---- Remove bloatware
     # Alarms
@@ -240,11 +244,14 @@ try{
     # Zune Music, Movies & TV
     Get-AppxPackage Microsoft.ZuneMusic | Remove-AppxPackage
     Get-AppxPackage Microsoft.ZuneVideo | Remove-AppxPackage
-
+    } catch {
+        Write-BoxstarterMessage "Bloatware Removal Failed"
+    }
     # =============================================
     # ---------------------------------------------
     # =============================================
 
+    try {
     Write-BoxstarterMessage "installing chocolatey"
     cinst inconsolata -y --cacheLocation "C:\temp"
     
@@ -264,8 +271,13 @@ try{
     #cinst firefox -y --cacheLocation "C:\temp"
     cinst flashplayerplugin -y --cacheLocation "C:\temp"
     cinst opera -y --cacheLocation "C:\temp"
-    
+    }catch {
+        Write-BoxStarterMessage "Productivity Tools installation failed"
+    }
+
     Write-BoxstarterMessage "Installing work environment"
+    
+    try {
     Enable-RemoteDesktop
     cinst Microsoft-Hyper-V-All -source windowsFeatures
     Install-WindowsFeature -name hyper-v -IncludeManagementTools
@@ -322,6 +334,9 @@ try{
     # Runtimes
     cinst visualstudio2017buildtools -y --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US" --cacheLocation "C:\temp"
     #cinst visualstudio2017-workload-vctools -y --cacheLocation "C:\temp"
+    } catch {
+        Write-BoxstarterMessage " IIS install failed"
+    }
 
     Write-BoxstarterMessage "Installing Runtimes"
     cinst dotnetcore-sdk -y --cacheLocation "C:\temp"
