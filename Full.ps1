@@ -126,7 +126,7 @@ try{
     } catch{
         Write-BoxstarterMessage "Registry Edits failed"
     }
-    
+
     try {
     Write-BoxstarterMessage "Removing Bloatware"
     #---- Remove bloatware
