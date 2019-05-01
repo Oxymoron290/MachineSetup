@@ -471,6 +471,6 @@ try{
     #    Rename-Computer -NewName $NewMachineName
     #}
 } catch {
-    Write-ChocolateyFailure 'Boxstarter Error: ' $($_.Exception.Message)
+    Write-BoxstarterMessage 'Boxstarter Error: ' $($_.Exception.Message)
     throw
 }
