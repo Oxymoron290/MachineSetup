@@ -245,6 +245,7 @@ try{
     # ---------------------------------------------
     # =============================================
 
+    echo "alright"
     Write-BoxstarterMessage "installing chocolatey"
     cinst inconsolata -y --cacheLocation "C:\temp"
     
