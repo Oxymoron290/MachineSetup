@@ -115,6 +115,8 @@
     code --install-extension "rbbit.typescript-hero"
     code --install-extension "dskwrk.vscode-generate-getter-setter"
     code --install-extension "vsmobile.vscode-react-native"
+    code --install-extension "davidanson.vscode-markdownlint"
+    code --install-extension "shd101wyy.markdown-preview-enhanced"
 
     cinst notepadplusplus -y --cacheLocation "C:\temp"
     cinst sublimetext2 -y --cacheLocation "C:\temp"
