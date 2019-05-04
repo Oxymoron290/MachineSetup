@@ -431,15 +431,24 @@ try{
     cinst gimp -y --cacheLocation "C:\temp"
     cinst inkscape -y --cacheLocation "C:\temp"
     cinst sharex -y --cacheLocation "C:\temp"
+    cinst firealpaca -y --cacheLocation "C:\temp"
+    # painttool sai`
 
     cinst audacity -y --cacheLocation "C:\temp"
     cinst audacity-lame -y --cacheLocation "C:\temp"
     cinst audacity-ffmpeg -y --cacheLocation "C:\temp"
     cinst obs-studio -y --cacheLocation "C:\temp"
     cinst shotcut -y --cacheLocation "C:\temp"
+    cinst kdenlive -y --cacheLocation "C:\temp"
+    cinst openshot -y --cacheLocation "C:\temp"
     cinst handbrake -y --cacheLocation "C:\temp"
 
     cinst blender -y --cacheLocation "C:\temp"
+    cinst opentoonz -y --cacheLocation "C:\temp"
+    cinst synfig -y --cacheLocation "C:\temp"
+    # pencil2d
+
+    cinst pencil -y --cacheLocation "C:\temp"
     
     Write-BoxstarterMessage "Installing Arduino tools"
     cinst arduino -y --cacheLocation "C:\temp"
