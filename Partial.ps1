@@ -124,6 +124,7 @@
     cinst nimbleset -y --cacheLocation "C:\temp"
     cinst azure-data-studio -y --cacheLocation "C:\temp"
     cinst linqpad -y --cacheLocation "C:\temp"
+    cinst zeal -y --cacheLocation "C:\temp"
     
     # Source control
     Write-BoxstarterMessage "Installing Source control tools"
